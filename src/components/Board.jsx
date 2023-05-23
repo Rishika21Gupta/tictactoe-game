@@ -1,30 +1,8 @@
 import Square from './Square';
-import { useState } from 'react';
-const Board=()=>
+
+// eslint-disable-next-line react/prop-types
+const Board=({squares,handleSquareClick})=>
 {
-    const [squares,setSquares]= useState(Array(9).fill(null));
-    const [isNext,setIsNext]=useState(false);
-
-
-    const handleSquareClick= clickedPosition =>
-    {
-
-        if(squares[clickedPosition]){
-            return;
-        }
-        setSquares(currentSquares=>{
-            return currentSquares.map((squareValue,position)=>{
-                if(clickedPosition===position){
-                    return isNext?'X':'O';
-                }
-
-                return squareValue;
-            });
-        });
-
-        setIsNext(currentIsNext=> !currentIsNext );
-    };
-
     const renderSquare=position=>{
         return (
             <Square 
@@ -34,7 +12,9 @@ const Board=()=>
     };
 
 
-    return( <div className="board">
+    return( 
+    <div className="board">
+        
         <div className="board-row">
             {renderSquare(0)}
             {renderSquare(1)}
