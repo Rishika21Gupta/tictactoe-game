@@ -6,11 +6,11 @@ import StatusMessage from './components/StatusMessage';
 import History from './components/History';
 import { calculateWinner } from './winner';
 
+const NEW_GAME=[{squares:Array(9).fill(null),isNext:false}];
+
 function App() {
 
-  const [history,setHistory]=useState([
-    {squares:Array(9).fill(null),isNext:false},
-  ]);
+  const [history,setHistory]=useState(NEW_GAME);
 
   const [currentMove,setCurrentMove]=useState(0);
 
