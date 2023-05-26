@@ -1,6 +1,9 @@
 // eslint-disable-next-line react/prop-types
-const StatusMessage=({winner,isNext,squares})=>
+const StatusMessage=({winner,gamingBoard})=>
 {
+// eslint-disable-next-line react/prop-types
+const {squares,isNext}=gamingBoard;
+
     // eslint-disable-next-line react/prop-types
     const noMovesLeft=squares.every((squareValue)=>squareValue !== null);
     const nextPlayer =isNext? 'X' : 'O';
